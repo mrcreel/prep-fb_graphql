@@ -8,22 +8,22 @@ const app = express()
 
 const teams = [
   {
-    'id': 'aberdeen',
+    '_id': 'aberdeen',
     'name': 'Aberdeen',
     'url': '/Aberdeen.htm',
     'status': 'active'
   }, {
-    'id': 'adamscountychristian',
+    '_id': 'adamscountychristian',
     'name': 'Adams County Christian',
     'url': '/Adamscountychristian.htm',
     'status': 'active'
   }, {
-    'id': 'alcorncentral',
+    '_id': 'alcorncentral',
     'name': 'Alcorn Central',
     'url': '/Alcorncentral.htm',
     'status': 'active'
   }, {
-    'id': 'amite',
+    '_id': 'amite',
     'name': 'Amite',
     'url': '/Amite.htm',
     'status': 'active'
@@ -37,7 +37,7 @@ app.use(
   graphQlHTTP({
     schema: buildSchema(`
       type Team {
-        id: String!
+        _id: ID!
         name: String!
         url: String!
         status: String!
@@ -59,7 +59,7 @@ app.use(
 )
 
 mongoose.connect(
-  `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@ms-prep-football-dxekj.mongodb.net/test?retryWrites=true`,
+  `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-dxekj.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`,
   {useNewUrlParser: true}
 ).then(() => {
   app.listen(3000)
