@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "App based on AcadeMind's GraphQL YT tutorial",
   "main": "index.js",
-  "repository": "",
+  "repository": "NA",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
@@ -15,7 +15,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
-    "graphql": "^14.1.1"
+    "graphql": "^14.1.1",
+    "mongoose": "^5.4.8"
   },
   "devDependencies": {
     "eslint": "^5.12.1",
