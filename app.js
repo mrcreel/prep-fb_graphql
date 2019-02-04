@@ -8,22 +8,22 @@ const app = express()
 
 const teams = [
   {
-    '_id': 'aberdeen',
+    'slug': 'aberdeen',
     'name': 'Aberdeen',
     'url': '/Aberdeen.htm',
     'status': 'active'
   }, {
-    '_id': 'adamscountychristian',
+    'slug': 'adamscountychristian',
     'name': 'Adams County Christian',
     'url': '/Adamscountychristian.htm',
     'status': 'active'
   }, {
-    '_id': 'alcorncentral',
+    'slug': 'alcorncentral',
     'name': 'Alcorn Central',
     'url': '/Alcorncentral.htm',
     'status': 'active'
   }, {
-    '_id': 'amite',
+    'slug': 'amite',
     'name': 'Amite',
     'url': '/Amite.htm',
     'status': 'active'
@@ -38,20 +38,29 @@ app.use(
     schema: buildSchema(`
       type Team {
         _id: ID!
+        slug: String
         name: String!
-        url: String!
+        url: String
         status: String!
       }
       type RootQuery {
         teams: [Team!]!
       }
+      type RootMutation {
+        createTeam(name: String): String
+      }
       schema {
         query: RootQuery
+        mutation: RootMutation
       }
     `),
     rootValue: {
       teams: () => {
         return teams
+      },
+      createTeam: (args) => {
+        const teamName = args.name
+        return teamName
       }
     },
     graphiql: true,
@@ -67,6 +76,3 @@ mongoose.connect(
   // eslint-disable-next-line no-console
   console.log(err)
 })
-
-
-
