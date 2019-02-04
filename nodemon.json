@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "michael",
+    "MONGO_PASSWORD": "stretch",
+    "MONGO_DB": "prep-football"
+  }
+}
