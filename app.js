@@ -6,12 +6,13 @@ const mongoose = require('mongoose')
 
 const app = express()
 
+/*
 const teams = [
   {
     'slug': 'aberdeen',
     'name': 'Aberdeen',
     'url': '/Aberdeen.htm',
-    'status': 'active'
+    'status': '/Aberdeen.htm'
   }, {
     'slug': 'adamscountychristian',
     'name': 'Adams County Christian',
@@ -29,6 +30,8 @@ const teams = [
     'status': 'active'
   }
 ]
+*/
+const teams = []
 
 app.use(bodyParser.json())
 
@@ -43,11 +46,17 @@ app.use(
         url: String
         status: String!
       }
+      input TeamInput {
+        slug: String
+        name: String!
+        url: String
+        status: String!
+      }
       type RootQuery {
         teams: [Team!]!
       }
       type RootMutation {
-        createTeam(name: String): String
+        createTeam(teamInput:TeamInput): Team
       }
       schema {
         query: RootQuery
@@ -59,8 +68,15 @@ app.use(
         return teams
       },
       createTeam: (args) => {
-        const teamName = args.name
-        return teamName
+        const team = {
+          _id: Math.random().toString(),
+          slug: args.teamInput.slug,
+          name: args.teamInput.name,
+          url: args.teamInput.url,
+          status: args.teamInput.status,
+        }
+        teams.push(team)
+        return team
       }
     },
     graphiql: true,
