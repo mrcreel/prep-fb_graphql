@@ -90,7 +90,7 @@ app.use(
           .then(result => {
           // eslint-disable-next-line no-console
           console.log(result)
-          return {...result._doc, _id: result._doc._id.toString()}
+          return {...result._doc, _id: result.id}
         }).catch(err => {
           // eslint-disable-next-line no-console
           console.log(err)
