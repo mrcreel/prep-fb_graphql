@@ -10,12 +10,16 @@
     }
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"]
-   },
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "precommit": "NODE_ENV=production lint-staged"
+    "precommit": "NODE_ENV=production lint-staged",
+    "commit": "npx git-cz"
   },
   "keywords": [],
   "author": "Michael R Creel",
@@ -30,6 +34,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "commitizen": "^3.0.5",
     "eslint": "^5.12.1",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
