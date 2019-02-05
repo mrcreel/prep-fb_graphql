@@ -1,5 +1,3 @@
-const bcrypt = require('bcryptjs')
-
 const Team = require('../../models/team')
 
 module.exports = {
@@ -24,6 +22,7 @@ module.exports = {
       status: args.teamInput.status,
     })
     try {
+      // eslint-disable-next-line no-unused-vars
       let createdTeam
       const result = await team
         .save()
@@ -32,8 +31,6 @@ module.exports = {
         _id: result.id
       }
     } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err)
       throw err
     }
     return team

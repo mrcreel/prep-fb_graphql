@@ -25,6 +25,5 @@ mongoose.connect(
 ).then(() => {
   app.listen(3000)
 }).catch(err => {
-  // eslint-disable-next-line no-console
-  console.log(err)
+  throw err
 })
