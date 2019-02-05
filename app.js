@@ -4,6 +4,8 @@ const graphQlHTTP = require('express-graphql')
 const {buildSchema} = require('graphql')
 const mongoose = require('mongoose')
 
+const Team =  require('./models/team')
+
 const app = express()
 
 /*
@@ -31,7 +33,6 @@ const teams = [
   }
 ]
 */
-const teams = []
 
 app.use(bodyParser.json())
 
@@ -65,17 +66,36 @@ app.use(
     `),
     rootValue: {
       teams: () => {
-        return teams
+        return Team.find()
+        .then(teams => {
+          return teams.map(team => {
+            return {...team._doc, _id: team.id}
+          })
+        })
+        .catch(err => {
+          // eslint-disable-next-line no-console
+          console.log(err)
+          throw err
+        })
       },
       createTeam: (args) => {
-        const team = {
-          _id: Math.random().toString(),
+        const team = new Team({
           slug: args.teamInput.slug,
           name: args.teamInput.name,
           url: args.teamInput.url,
           status: args.teamInput.status,
-        }
-        teams.push(team)
+        })
+        return team
+          .save()
+          .then(result => {
+          // eslint-disable-next-line no-console
+          console.log(result)
+          return {...result._doc, _id: result._doc._id.toString()}
+        }).catch(err => {
+          // eslint-disable-next-line no-console
+          console.log(err)
+          throw err
+        })
         return team
       }
     },
