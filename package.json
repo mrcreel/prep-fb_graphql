@@ -18,8 +18,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "precommit": "NODE_ENV=production lint-staged",
-    "commit": "npx git-cz"
+    "precommit": "NODE_ENV=production lint-staged"
   },
   "keywords": [],
   "author": "Michael R Creel",
