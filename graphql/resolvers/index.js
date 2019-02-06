@@ -1,14 +1,18 @@
 const Team = require('../../models/team')
 
+const transformTeam = team => {
+  return {
+    ...team._doc,
+    _id: team.id
+  }
+}
+
 module.exports = {
   teams: async () => {
     try {
       const teams = await Team.find()
       return teams.map(team => {
-        return {
-          ...team._doc,
-          _id: team.id
-        }
+        return transformTeam(team)
       })
     } catch (err) {
       throw err
@@ -22,14 +26,9 @@ module.exports = {
       status: args.teamInput.status,
     })
     try {
-      // eslint-disable-next-line no-unused-vars
-      let createdTeam
       const result = await team
         .save()
-      createdTeam = {
-        ...result._doc,
-        _id: result.id
-      }
+      transformTeam(result)
     } catch (err) {
       throw err
     }
