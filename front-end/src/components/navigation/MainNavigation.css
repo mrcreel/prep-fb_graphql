@@ -1,3 +1,8 @@
+/* Set global variables for CSS */
+:root{
+  --main-color: #7de482;
+}
+
 .main-navigation {
   display: flex;
   position: fixed;
@@ -5,7 +10,7 @@
   left: 0;
   height: 3.5rem;
   width: 100%;
-  background: #7de482;
+  background: var(--main-color);
   padding: 0 1rem;
   align-items: center;
 }

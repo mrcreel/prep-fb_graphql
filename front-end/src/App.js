@@ -13,7 +13,6 @@ import MainNavigation from './components/navigation/MainNavigation'
 import TeamsPage from './pages/Teams'
 import YearsPage from './pages/Years'
 import RegionsPage from './pages/Regions'
-import HomePage from './pages/Home'
 
 class App extends Component {
   render() {

@@ -7,7 +7,7 @@ const mainNavigation = props => {
   return(
     <header className="main-navigation">
       <div className="main-navigation__logo">
-        <NavLink to="/home"><h1>Mississippi Prep Football</h1></NavLink>
+        <h1>Mississippi Prep Football</h1>
       </div>
       <nav className="main-navigation__items">
         <ul>
