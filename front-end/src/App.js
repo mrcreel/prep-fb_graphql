@@ -8,7 +8,7 @@ import {
 
 import './App.css'
 
-import MainNavigation from './components/navigation/MainNavigation'
+import MainNavigation from './components/Navigation/MainNavigation'
 
 import TeamsPage from './pages/Teams'
 import YearsPage from './pages/Years'
