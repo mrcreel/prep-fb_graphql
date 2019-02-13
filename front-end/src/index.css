@@ -1,5 +1,15 @@
+/* Set global variables for site */
+:root{
+  --main-color: #18631c;
+  --secondary-color: #a9e9ac;
+  --main-color__link: #d4d258;
+  --list__border: 1px solid green;
+  --list-item__border: 1px solid red;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+

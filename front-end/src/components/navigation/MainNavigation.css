@@ -1,8 +1,3 @@
-/* Set global variables for CSS */
-:root{
-  --main-color: #7de482;
-}
-
 .main-navigation {
   display: flex;
   position: fixed;
@@ -44,5 +39,5 @@
 .main-navigation__items a:hover,
 .main-navigation__items a:active,
 .main-navigation__items a.active {
-  color: #000;
+  color:var(--main-color__link);
 }

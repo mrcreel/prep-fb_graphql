@@ -22,7 +22,7 @@ class App extends Component {
           <MainNavigation />
           <main className="main-content">
             <Switch>
-              <Redirect from="/" to="/home" exact></Redirect>
+              <Redirect from="/" to="/teams" exact></Redirect>
               <Route path="/teams" component = {TeamsPage}></Route>
               <Route path="/years" component = {YearsPage}></Route>
               <Route path="/regions" component = {RegionsPage}></Route>
