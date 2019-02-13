@@ -18,6 +18,21 @@ module.exports = {
       throw err
     }
   },
+  team: async args => {
+    try{
+      const team = await Team.findOne(args)
+      return transformTeam(team)
+    } catch (err) {
+      throw err
+    }
+  },
+
+  /*
+      const teams = await Team.find()
+      return teams.map(team => {
+        return transformTeam(team)
+      )
+  */
   createTeam: async args => {
     const team = new Team({
       slug: args.teamInput.slug,

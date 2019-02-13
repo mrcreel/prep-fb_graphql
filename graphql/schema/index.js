@@ -15,6 +15,7 @@ input TeamInput {
   status: String!
 }
 type RootQuery {
+  team(_id: ID):Team
   teams: [Team!]!
 }
 type RootMutation {
