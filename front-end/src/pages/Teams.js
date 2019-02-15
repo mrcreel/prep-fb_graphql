@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 
 import './Teams.css'
 class TeamsPage extends Component {
@@ -47,18 +46,24 @@ class TeamsPage extends Component {
   }
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const teamList = this.state.teams.map(team => {
       return(
+        /*
         <li key={team._id} className="teams-list__item">
           <Link to={`/team/${team.slug}`} className="link">
               {team.name}
           </Link>
         </li>
+        */
+       console.log('running')
       )
     })
     return(
       <React.Fragment>
+        {/*
          <ul className="teams-list">{teamList}</ul>
+        */}
       </React.Fragment>
     )
   }

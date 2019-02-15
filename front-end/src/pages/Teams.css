@@ -1,21 +1,22 @@
+/*
 .teams-list{
   margin: 1rem 0;
   width: 80rem;
   max-width: 80%;
-  /* border: var(--list__border); */
   padding: 0;
   list-style: none;
 }
+
 .teams-list__item{
   margin: 0;
-  /* border: var(--list-item__border); */
   padding: 0.25rem;
-
 }
+
 .teams-list__item p{
   margin: 0;
   cursor: pointer;
 }
+*/
 
 .link{
   text-decoration: none;
